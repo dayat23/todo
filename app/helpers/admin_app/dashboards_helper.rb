@@ -1,0 +1,2 @@
+module AdminApp::DashboardsHelper
+end
