@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,9 +16,9 @@
 
     <style type="text/css">
       body {
-	    min-height: 2000px;
-	    padding-top: 70px;
-	  }
+        min-height: 2000px;
+        padding-top: 70px;
+      }
     </style>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -42,30 +43,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to 'ToDo', root_path ,class: 'navbar-brand' %>
+          <%= link_to 'ToDo', user_dashboards_path , class: 'navbar-brand' %>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
+            <li class="active"><a href="#">Project</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="../navbar/">Default</a></li>
-            <li><a href="../navbar-static-top/">Static top</a></li>
-            <li class="active"><a href="./">Fixed top</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+              </ul>
+            </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -74,13 +64,9 @@
     <div class="container">
 
       <!-- Main component for a primary marketing message or call to action -->
-      
-      <div class="jumbotron">
-        <%= yield %>
-      </div>
+      <%= yield %>
 
     </div> <!-- /container -->
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

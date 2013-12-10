@@ -1,0 +1,1 @@
+json.extract! @company, :full_name, :name_company, :admin_user_id, :created_at, :updated_at

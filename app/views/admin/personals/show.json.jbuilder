@@ -1,0 +1,1 @@
+json.extract! @personal, :first_name, :last_name, :photo, :created_at, :updated_at

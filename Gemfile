@@ -19,6 +19,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use login to Application
 gem 'devise'
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
+gem "rails-admin-scaffold"
+gem "friendly_id", "~> 4.0.10"
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

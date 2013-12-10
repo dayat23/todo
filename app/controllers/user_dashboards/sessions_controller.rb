@@ -1,6 +1,6 @@
 class UserDashboards::SessionsController < Devise::SessionsController
   layout false
-  
+
   def new
     resource = build_resource({})
     respond_with resource
@@ -13,7 +13,7 @@ class UserDashboards::SessionsController < Devise::SessionsController
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_navigational_format?
         sign_up(resource_name, resource)
-        redirect_to root_path, :location => after_sign_up_path_for(resource)
+        redirect_to user_dashboards_path, :location => after_sign_up_path_for(resource)
       # else
       #   set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
       #   expire_session_data_after_sign_in!

@@ -1,1 +1,15 @@
-<%= link_to "Sign out (#{current_user.email})", destroy_user_session_path, :method => :delete %>
+<div class="jumbotron">
+    <h1>Project</h1>
+    <% if @projects.blank? %>
+    	Not found project
+    <% else %>
+	    <% @projects.each do |project| %>
+	      <tr>
+	        <td><%= project.name_project %></td>
+	        <td><%= link_to 'Show', [:admin, project] %></td>
+	        <td><%= link_to 'Edit', edit_admin_project_path(project) %></td>
+	        <td><%= link_to 'Destroy', [:admin, project], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	      </tr>
+	    <% end %>
+	<% end %>
+</div>

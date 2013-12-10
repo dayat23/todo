@@ -1,15 +1,27 @@
 Todo::Application.routes.draw do
 
+  namespace :admin, path: '/' do
+    resources :personals
+    resources :projects
+    resources :companies
+  end
+
   devise_for :admin_users, :controllers => { :sessions => "admin_users/sessions"}
 
-  # devise_for :users
   devise_for :users, :controllers => { :sessions => "user_dashboards/sessions"}
 
-  resources :user_dashboards
+  resources :user_dashboards, path: 'dashboards'
   resources :pages
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  match 'contact', to: 'pages#contact_us', via: [:get]
+  match 'about', to: 'pages#about', via: [:get]
+
+  devise_scope :user do
+    get '/users' => 'user_dashboards/sessions#new'
+  end
   # You can have the root of your site routed with "root"
 
   # root 'admin_app/dashboards#index', :constraints => {:subdomain => "admin"}
@@ -18,6 +30,7 @@ Todo::Application.routes.draw do
       root to: 'dashboards#index'
     end
   end
+
   # root 'user_dashboards#index'
   root 'pages#index'
 
