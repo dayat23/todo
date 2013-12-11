@@ -3,7 +3,9 @@ class UserDashboards::SessionsController < Devise::SessionsController
 
   def new
     resource = build_resource({})
-    respond_with resource
+    respond_with(resource) do |format|
+      format.html { render 'user_new' }
+    end
   end
   
   def create
@@ -22,7 +24,8 @@ class UserDashboards::SessionsController < Devise::SessionsController
     else
       clean_up_passwords resource
       set_flash_message :notice, :same_email if is_navigational_format?
-      redirect_to new_web_user_registration_path
+      # redirect_to new_web_user_registration_path
+      render action: 'new'
     end
   end
 
