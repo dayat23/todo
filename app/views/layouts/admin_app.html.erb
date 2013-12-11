@@ -46,7 +46,8 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><%= link_to 'Projects', admin_projects_path %></li>
+            <li class="<%= @index %>"><%= link_to 'Projects', root_path, "data-turbolinks-track" => true %></li>
+            <li class="<%= @classcompany %>"><%= link_to 'Company', admin_companies_path, "data-turbolinks-track" => true %></li>
             <!-- <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li> -->
           </ul>

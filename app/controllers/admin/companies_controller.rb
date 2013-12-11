@@ -4,6 +4,7 @@ class Admin::CompaniesController < AdminAppController
   # GET /admin/companies
   # GET /admin/companies.json
   def index
+    @classcompany = "active"
     @companies = Company.all
   end
 

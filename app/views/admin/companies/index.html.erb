@@ -17,7 +17,7 @@
       <tr>
         <td><%= company.full_name %></td>
         <td><%= company.name_company %></td>
-        <td><%= company.admin_user_id %></td>
+        <td><%= company.admin_user.email %></td>
         <td><%= link_to 'Show', [:admin, company] %></td>
         <td><%= link_to 'Edit', edit_admin_company_path(company) %></td>
         <td><%= link_to 'Destroy', [:admin, company], method: :delete, data: { confirm: 'Are you sure?' } %></td>

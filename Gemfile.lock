@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/FriendlyId/friendly_id.git
+  revision: 23cbef2bbe71189e4a91f07b3479844f33c836fa
+  specs:
+    friendly_id (5.0.2)
+      activerecord (~> 4.0.0)
+
+GIT
   remote: git://github.com/rails/activerecord-session_store.git
   revision: a0753820f0032dec7c37441be93ffc76b9dce3d0
   specs:
@@ -53,7 +60,6 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.0.2)
-    friendly_id (4.0.10)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -134,7 +140,7 @@ DEPENDENCIES
   activerecord-session_store!
   coffee-rails (~> 4.0.0)
   devise
-  friendly_id (~> 4.0.10)
+  friendly_id!
   jbuilder (~> 1.2)
   jquery-rails
   mysql2

@@ -20,7 +20,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 gem "rails-admin-scaffold"
-gem "friendly_id", "~> 4.0.10"
+gem 'friendly_id', github: 'FriendlyId/friendly_id'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
