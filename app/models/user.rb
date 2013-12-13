@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :personal, dependent: :destroy
+  belongs_to :role
 
   accepts_nested_attributes_for :personal
 end

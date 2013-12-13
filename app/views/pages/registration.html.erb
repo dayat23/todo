@@ -1,5 +1,6 @@
 <%= form_for(@user) do |f|%>
 <%= f.fields_for :personal do |personal_form| %>
+	<%= f.hidden_field :role_id %>
 	<%= personal_form.label :first_name, "Full Name" %>
 	<%= personal_form.text_field :first_name, placeholder: 'Full Name', :required => true %><br>
 	<%= personal_form.label :company_name, 'Company or Organization' %>

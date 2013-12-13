@@ -34,7 +34,8 @@ class PagesController < FrontEndController
   end
 
   def registration
-    @user = User.new
+    @role = Role.first
+    @user = User.new(role_id: @role.id)
     @personal = @user.build_personal
   end
 end
