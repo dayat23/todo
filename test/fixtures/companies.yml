@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  full_name: MyString
   name_company: MyString
-  admin_user_id: 1
+  personal_id: 1
+  code_company: MyString
+  slug: MyString
 
 two:
-  full_name: MyString
   name_company: MyString
-  admin_user_id: 1
+  personal_id: 1
+  code_company: MyString
+  slug: MyString

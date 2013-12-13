@@ -4,10 +4,12 @@ one:
   name_project: MyString
   company_id: 1
   slug: MyString
+  title: MyString
   code_project: MyString
 
 two:
   name_project: MyString
   company_id: 1
   slug: MyString
+  title: MyString
   code_project: MyString

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131211074426) do
+ActiveRecord::Schema.define(version: 20131213053711) do
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -32,9 +32,10 @@ ActiveRecord::Schema.define(version: 20131211074426) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "companies", force: true do |t|
-    t.string   "full_name"
     t.string   "name_company"
-    t.integer  "admin_user_id"
+    t.integer  "personal_id"
+    t.string   "code_company"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,21 +44,29 @@ ActiveRecord::Schema.define(version: 20131211074426) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "photo"
+    t.string   "code_person"
     t.string   "slug"
-    t.string   "code_personal"
+    t.string   "title"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "title"
   end
 
   create_table "projects", force: true do |t|
     t.string   "name_project"
     t.integer  "company_id"
     t.string   "slug"
+    t.string   "title"
     t.string   "code_project"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "title"
+  end
+
+  create_table "roles", force: true do |t|
+    t.string   "name_role"
+    t.integer  "status",     default: 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sessions", force: true do |t|

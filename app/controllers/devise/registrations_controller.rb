@@ -12,8 +12,9 @@ class Devise::RegistrationsController < DeviseController
     if resource.save
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_navigational_format?
-        sign_up(resource_name, resource)
-        redirect_to root_path, :location => after_sign_up_path_for(resource)
+        # sign_up(resource_name, resource)
+        # redirect_to root_path, :location => after_sign_up_path_for(resource)
+        redirect_to root_path
       # else
       #   set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
       #   expire_session_data_after_sign_in!
@@ -21,8 +22,10 @@ class Devise::RegistrationsController < DeviseController
       end
     else
       clean_up_passwords resource
-      set_flash_message :notice, :same_email if is_navigational_format?
-      redirect_to new_web_user_registration_path
+      # set_flash_message :notice, :same_email if is_navigational_format?
+      # redirect_to new_web_user_registration_path
+      # redirect_to root_path
+      redirect_to registration_path
     end
   end
 
@@ -39,4 +42,8 @@ class Devise::RegistrationsController < DeviseController
   def after_sign_up_path_for(resource)
     after_sign_in_path_for(resource)
   end
+
+  def resource_params
+    params.require(:user).permit(:email, :password, :password_confirmation, personal_attributes: [:first_name, :company_name])
+  end 
 end

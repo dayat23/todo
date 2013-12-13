@@ -1,10 +1,10 @@
 Todo::Application.routes.draw do
 
-  namespace :admin, path: '/' do
-    resources :personals
-    resources :projects
-    resources :companies
-  end
+  resources :projects
+
+  resources :personals
+
+  resources :companies
 
   devise_for :admin_users, :controllers => { :sessions => "admin_users/sessions"}
 
@@ -18,6 +18,7 @@ Todo::Application.routes.draw do
 
   match 'contact', to: 'pages#contact_us', via: [:get]
   match 'about', to: 'pages#about', via: [:get]
+  match 'registration', to: 'pages#registration', via: [:get, :post], path: 'register'
 
   devise_scope :user do
     get '/users' => 'user_dashboards/sessions#new'

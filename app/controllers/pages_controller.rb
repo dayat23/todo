@@ -1,5 +1,4 @@
-class PagesController < ApplicationController
-  layout 'front_end'
+class PagesController < FrontEndController
 
   def index
   	if current_user
@@ -32,5 +31,10 @@ class PagesController < ApplicationController
   		  format.html
   		end
   	end
+  end
+
+  def registration
+    @user = User.new
+    @personal = @user.build_personal
   end
 end

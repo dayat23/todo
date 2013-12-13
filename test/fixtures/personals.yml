@@ -4,12 +4,16 @@ one:
   first_name: MyString
   last_name: MyString
   photo: MyString
+  code_person: MyString
   slug: MyString
-  code_personal: MyString
+  title: MyString
+  user_id: 1
 
 two:
   first_name: MyString
   last_name: MyString
   photo: MyString
+  code_person: MyString
   slug: MyString
-  code_personal: MyString
+  title: MyString
+  user_id: 1
