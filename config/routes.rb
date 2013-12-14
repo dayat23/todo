@@ -4,7 +4,7 @@ Todo::Application.routes.draw do
 
   resources :personals
 
-  resources :companies
+  resources :companies, path: ":id", only: [:index]
 
   devise_for :admin_users, :controllers => { :sessions => "admin_users/sessions"}
 
