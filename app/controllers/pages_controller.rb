@@ -4,7 +4,7 @@ class PagesController < FrontEndController
   	if current_user
       @personal = Personal.find_by_user_id(current_user.id)
       @company = Company.find_by_personal_id(@personal.id)
-  		redirect_to companies_path(id: @company)
+  		redirect_to user_index_path(id: @company)
   	else
   		@index = "active"
   		respond_to do |format|
@@ -17,7 +17,7 @@ class PagesController < FrontEndController
   	if current_user
   		@personal = Personal.find_by_user_id(current_user.id)
       @company = Company.find_by_personal_id(@personal.id)
-      redirect_to companies_path(id: @company)
+      redirect_to user_index_path(id: @company)
   	else
   		@about = "active"
   		respond_to do |format|
@@ -30,7 +30,7 @@ class PagesController < FrontEndController
   	if current_user
   		@personal = Personal.find_by_user_id(current_user.id)
       @company = Company.find_by_personal_id(@personal.id)
-      redirect_to companies_path(id: @company)
+      redirect_to user_index_path(id: @company)
   	else
   		@contact = "active"
   		respond_to do |format|
@@ -43,7 +43,7 @@ class PagesController < FrontEndController
     if current_user
       @personal = Personal.find_by_user_id(current_user.id)
       @company = Company.find_by_personal_id(@personal.id)
-      redirect_to companies_path(id: @company)
+      redirect_to user_index_path(id: @company)
     else
       @role = Role.first
       @user = User.new(role_id: @role.id)

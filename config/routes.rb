@@ -4,14 +4,14 @@ Todo::Application.routes.draw do
 
   resources :personals
 
-  resources :companies, path: ":id", only: [:index]
+  resources :companies
 
   devise_for :admin_users, :controllers => { :sessions => "admin_users/sessions"}
 
   devise_for :users, :controllers => { :sessions => "user_dashboards/sessions"}
 
   resources :user_dashboards, path: 'dashboards'
-  resources :pages
+  # resources :pages
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -22,6 +22,8 @@ Todo::Application.routes.draw do
 
   devise_scope :user do
     get '/users' => 'user_dashboards/sessions#new'
+    get '/index' => 'user_dashboards/sessions#new'
+    match ':id', to: 'companies#index', via: [:get], as: 'user_index'
   end
   # You can have the root of your site routed with "root"
 
