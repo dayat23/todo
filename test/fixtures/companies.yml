@@ -2,12 +2,10 @@
 
 one:
   name_company: MyString
-  personal_id: 1
   code_company: MyString
   slug: MyString
 
 two:
   name_company: MyString
-  personal_id: 1
   code_company: MyString
   slug: MyString

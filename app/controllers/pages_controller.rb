@@ -2,8 +2,8 @@ class PagesController < FrontEndController
 
   def index
   	if current_user
-      @personal = Personal.find_by_user_id(current_user.id)
-      @company = Company.find_by_personal_id(@personal.id)
+      @personal = Personal.find_by_user_id(resource)
+      @company_personal = CompanyPersonal.find_by_personal_id(@personal.id)
   		redirect_to user_index_path(id: @company)
   	else
   		@index = "active"
@@ -15,8 +15,8 @@ class PagesController < FrontEndController
 
   def about
   	if current_user
-  		@personal = Personal.find_by_user_id(current_user.id)
-      @company = Company.find_by_personal_id(@personal.id)
+  		@personal = Personal.find_by_user_id(resource)
+      @company_personal = CompanyPersonal.find_by_personal_id(@personal.id)
       redirect_to user_index_path(id: @company)
   	else
   		@about = "active"
@@ -28,8 +28,8 @@ class PagesController < FrontEndController
 
   def contact_us
   	if current_user
-  		@personal = Personal.find_by_user_id(current_user.id)
-      @company = Company.find_by_personal_id(@personal.id)
+  		@personal = Personal.find_by_user_id(resource)
+      @company_personal = CompanyPersonal.find_by_personal_id(@personal.id)
       redirect_to user_index_path(id: @company)
   	else
   		@contact = "active"
@@ -41,8 +41,8 @@ class PagesController < FrontEndController
 
   def registration
     if current_user
-      @personal = Personal.find_by_user_id(current_user.id)
-      @company = Company.find_by_personal_id(@personal.id)
+      @personal = Personal.find_by_user_id(resource)
+      @company_personal = CompanyPersonal.find_by_personal_id(@personal.id)
       redirect_to user_index_path(id: @company)
     else
       @role = Role.first

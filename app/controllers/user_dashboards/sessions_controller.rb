@@ -17,8 +17,8 @@ class UserDashboards::SessionsController < Devise::SessionsController
         sign_up(resource_name, resource)
         # redirect_to user_dashboards_path, :location => after_sign_up_path_for(resource)
         @personal = Personal.find_by_user_id(resource)
-        @company = Company.find_by_personal_id(@personal.id)
-        redirect_to user_index_path(id: @company), :location => after_sign_up_path_for(resource)
+        @company_personal = CompanyPersonal.find_by_personal_id(@personal.id)
+        redirect_to user_index_path(id: @company_personal.company), :location => after_sign_up_path_for(resource)
       # else
       #   set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
       #   expire_session_data_after_sign_in!

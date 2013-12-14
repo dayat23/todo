@@ -2,7 +2,7 @@ class Company < ActiveRecord::Base
   extend FriendlyId
   friendly_id :generate_custom_slug, use: :slugged
 
-  belongs_to :personal
+  has_many :company_personals
 
   def generate_code_project
     self.code_company ||= loop do

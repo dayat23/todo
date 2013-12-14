@@ -4,11 +4,11 @@ class Personal < ActiveRecord::Base
 
   attr_accessor :company_name
   
-  has_many :company
+  has_many :company_personals
   # has_one :company
   belongs_to :user, dependent: :destroy
 
-  after_create :create_company
+  after_create :create_company_and_company_personal
 
   def generate_code_project
     self.code_person ||= loop do
@@ -22,7 +22,8 @@ class Personal < ActiveRecord::Base
     generate_code_project
   end
 
-  def create_company
-    Company.create!(personal_id: self.id, name_company: self.company_name)
+  def create_company_and_company_personal
+    @company = Company.create!(name_company: self.company_name)
+    CompanyPersonal.create!(company_id: @company.id, personal_id: self.id)
   end
 end

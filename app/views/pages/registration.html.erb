@@ -1,16 +1,16 @@
-<%= form_for(@user) do |f|%>
+<%= form_for(@user, html: { class: 'form-register' }) do |f|%>
 <%= f.fields_for :personal do |personal_form| %>
 	<%= f.hidden_field :role_id %>
 	<%= personal_form.label :first_name, "Full Name" %>
-	<%= personal_form.text_field :first_name, placeholder: 'Full Name', :required => true %><br>
+	<%= personal_form.text_field :first_name, placeholder: 'Full Name', :required => true, class: 'form-control' %><br>
 	<%= personal_form.label :company_name, 'Company or Organization' %>
-	<%= personal_form.text_field :company_name, placeholder: 'Company or Organization'%><br>
+	<%= personal_form.text_field :company_name, placeholder: 'Company or Organization', class: 'form-control'%><br>
 	<%= f.label :email, 'Email' %>
-	<%= f.email_field :email, :autofocus => true, placeholder: 'Email address', :required => true %><br>
+	<%= f.email_field :email, :autofocus => true, placeholder: 'Email address', :required => true, class: 'form-control' %><br>
 	<%= f.label :password, 'Password' %>
-	<%= f.password_field :password, placeholder: 'Password', :required => true %><br>
+	<%= f.password_field :password, placeholder: 'Password', :required => true, class: 'form-control' %><br>
 	<%= f.label :password_confirmation, 'Password Confirmation' %>
-	<%= f.password_field :password_confirmation, placeholder: 'Password Confirmation', :required => true %><br>
+	<%= f.password_field :password_confirmation, placeholder: 'Password Confirmation', :required => true, class: 'form-control' %><br>
 	<%= f.submit 'Register', class: 'btn btn-lg btn-success' %>
 <% end %>
 <% end %>
