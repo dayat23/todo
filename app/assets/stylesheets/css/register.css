@@ -31,10 +31,7 @@
 }
 
 .form-register input[type="text"] {
-    margin-bottom: -1px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-}
+    margin-bottom: 10px;
 
 .form-register input[type="email"] {
     margin-bottom: 10px;

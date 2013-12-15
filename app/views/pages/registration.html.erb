@@ -10,7 +10,33 @@
 	<%= f.label :password, 'Password' %>
 	<%= f.password_field :password, placeholder: 'Password', :required => true, class: 'form-control' %><br>
 	<%= f.label :password_confirmation, 'Password Confirmation' %>
-	<%= f.password_field :password_confirmation, placeholder: 'Password Confirmation', :required => true, class: 'form-control' %><br>
-	<%= f.submit 'Register', class: 'btn btn-lg btn-success' %>
+	<%= f.password_field :password_confirmation, placeholder: 'Password Confirmation', :required => true, class: 'form-control', onkeyup: "checkPass(); return false;", onclick: "checkPass()" %>
+	<label id="confirmMessage" class="confirmMessage"></label><br>
+	<%= f.submit 'Register', class: 'btn btn-lg btn-success btn-block' %>
 <% end %>
 <% end %>
+
+<script type="text/javascript">
+
+function checkPass()
+{
+    var pass = document.getElementById('user_password');
+    var pass_confirm = document.getElementById('user_password_confirmation');
+    var message = document.getElementById('confirmMessage');
+    var goodColor = "#66cc66";
+    var badColor = "#ff6666";
+    if(pass.value == ''){
+    	pass_confirm.style.backgroundColor = badColor;
+        message.style.color = badColor;
+        message.innerHTML = "Password Blank!"
+    }else if(pass.value == pass_confirm.value){
+        pass_confirm.style.backgroundColor = goodColor;
+        message.style.color = goodColor;
+        message.innerHTML = "Password Match!"
+    }else{
+        pass_confirm.style.backgroundColor = badColor;
+        message.style.color = badColor;
+        message.innerHTML = "Password Do Not Match!"
+    }
+}  
+</script>
